@@ -14,18 +14,33 @@
     margin-top: 50px;
 }
 
+#gameTitle{
+    flex: 2;
+}
+
 #gameButtons{
     /*border: 2px solid red;*/
     display: flex;
+    flex:1;
     width: 250px;
     align-items: center;
     justify-content: space-around;
 }
 
-#gameBoard{
+button{
+    height: 50px;
+}
+
+/*div for border - hover effect problems*/
+#gameBoardBorder{
     border: 2px solid black;
-    height: 70vh;
     margin-top: 50px;
+}
+
+#gameBoard{
+    /*border: 2px solid black;*/
+    height: 70vh;
+    
     display: flex; /*div's will be added via JS*/
     flex-wrap: wrap;
 }
