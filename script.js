@@ -7,13 +7,12 @@ const gameBoard = document.querySelector("#gameBoard");
 const eraseButton = document.querySelector("#eraseButton");
 const colorButton = document.querySelector("#colorButton");
 const gridReset = document.querySelector("#gridReset");
+const newGridSize = document.querySelector("#newGridSize");
 
 //creating div's
 function createDiv(){
     let div = document.createElement("div");
-    div.style.border = "1px solid red";
-    div.className = "gridItem";
-    div.style.width = "100vw";
+    //div.style.border = "1px solid red"; // testing purposes
     div.style.flex = defaultFlexItem; //bepaald percentage van een div
     gameBoard.appendChild(div);
 }
@@ -51,17 +50,23 @@ gridReset.addEventListener("click", () => {
     createGrid();
 })
 
+newGridSize.addEventListener("click", () => {
+    let userInput = prompt("Please enter a number for the desired grid size:");
+
+    if(userInput < 0 || userInput > 100){
+        userInput = prompt("You did not enter a valid number, please enter a number between 0 and 100");
+    }
+
+    gridSize = userInput * userInput;
+    defaultFlexItem = (100 / userInput) + "%";
+    deleteGrid();
+    createGrid();
+})
+
 createGrid();
 
-/*
-next steps:
-add function behind new grid size button
-    -- prompt -- userInput = new size.
-    -- DELETE function -- done
-        
-    -- probably rework needed after this button.
-        -- in mijn create zit defaultFlexItem an deze kijkt naar de 16
-        -- kan ik die default aanpassen?
-        -- zo dat de aangepaste versie ook in de create functie zit?
-    -- how grids are being calculated = "default" in function
-*/
+/**
+ * randomize RGB colors when hovering
+ * a darkening effect - every div is 10% darker then the one before.
+ * More CSS
+ */

@@ -8,7 +8,7 @@
 }
 
 #pageInfo{
-    border: 2px solid black;
+    /*border: 2px solid black;*/ /*testing purposes*/
     display: flex;
     justify-content: space-around;
     margin-top: 50px;
